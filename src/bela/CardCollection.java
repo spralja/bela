@@ -23,4 +23,8 @@ public abstract class CardCollection {
     public int size() {
         return cards.size();
     }
+
+    public Card get(int index) {
+        return cards.get(index);
+    }
 }

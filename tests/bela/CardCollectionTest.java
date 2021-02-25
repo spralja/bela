@@ -37,6 +37,14 @@ class CardCollectionTest {
         cards.add(new Card(Suit.HEARTS, Rank.K));
         assertTrue(cards.size() == 1);
     }
+
+    @Test
+    void get00() {
+        CardCollection cards = new CardCollectionDummy();
+        Card card = new Card(Suit.HEARTS, Rank.K);
+        cards.add(card);
+        assertTrue(cards.get(0).equals(card));
+    }
 }
 
 class CardCollectionDummy extends CardCollection {
