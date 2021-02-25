@@ -11,6 +11,21 @@ public enum Rank {
     A,
     ;
 
+    public static final int NUMBER_OF_RANKS = 8;
+
+    public static Rank getByIndex(int index) {
+        return switch(index) {
+            case 0 -> VII;
+            case 1 -> VIII;
+            case 2 -> IX;
+            case 3 -> X;
+            case 4 -> J;
+            case 5 -> Q;
+            case 6 -> K;
+            default -> A;
+        };
+    }
+
     public int value(boolean isTrumpSuit) {
         if(isTrumpSuit) {
             return switch(this) {

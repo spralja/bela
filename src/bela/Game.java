@@ -20,7 +20,8 @@ public class Game {
     }
 
     public static final int POINT_GOAL = 1001;
-    public static final int NUMBER_OF_PLAYERS = 4;
+    public static final int NUMBER_OF_PLAYERS = PlayerQuartet.NUMBER_OF_PLAYERS;
+    public static final int NUMBER_OF_TEAMS = 2;
 
     public Game(PlayerQuartet players) {
         this.players = players;

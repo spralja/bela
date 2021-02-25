@@ -28,6 +28,10 @@ public abstract class CardCollection {
         return cards.get(index);
     }
 
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+
     public String toString(Suit trumpSuit) {
         StringBuilder string = new StringBuilder("[ ");
         for(Card card : cards) {

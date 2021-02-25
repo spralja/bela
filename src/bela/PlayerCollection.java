@@ -26,4 +26,8 @@ public abstract class PlayerCollection {
         string.append("]");
         return string.toString();
     }
+
+    public abstract void openTalon();
+
+    public abstract void closeTalon();
 }
