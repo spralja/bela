@@ -27,4 +27,14 @@ public abstract class CardCollection {
     public Card get(int index) {
         return cards.get(index);
     }
+
+    public String toString(Suit trumpSuit) {
+        StringBuilder string = new StringBuilder("[ ");
+        for(Card card : cards) {
+            string.append(card.toString(trumpSuit)).append(" ");
+        }
+
+        string.append("]");
+        return string.toString();
+    }
 }
