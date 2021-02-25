@@ -3,7 +3,7 @@ package bela;
 import java.util.ArrayList;
 
 public abstract class CardCollection {
-    private ArrayList< Card > cards = new ArrayList<>();
+    protected ArrayList< Card > cards = new ArrayList<>();
 
 
     public boolean add(Card card) {
