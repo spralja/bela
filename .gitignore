@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#.idea\.gitignore
+
+# Default ignored files
+/.idea/shelf/
+/.idea/workspace.xml
+# Datasource local storage ignored files
+/../../../../:\dev\bela\.idea/dataSources/
+/.idea/dataSources.local.xml
+# Editor-based HTTP Client requests
+/.idea/httpRequests/
+
+#.idea
+/.idea/.gitignore
