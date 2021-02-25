@@ -27,6 +27,6 @@ public class Card {
 
     public String toString(Suit trumpSuit) {
         StringBuilder string = new StringBuilder();
-        return string.append(rank.toString(trumpSuit)).append(suit.toString(trumpSuit)).toString();
+        return string.append(rank.toString()).append(suit.toString(trumpSuit)).toString();
     }
 }
