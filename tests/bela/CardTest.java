@@ -72,4 +72,32 @@ class CardTest {
         Card card = new Card(Suit.HEARTS, Rank.K);
         assertTrue(card.toString(Suit.HEARTS).equals("K♥"));
     }
+
+    @Test
+    void equals00() {
+        Card card1 = new Card(Suit.HEARTS, Rank.VII);
+        Card card2 = new Card(Suit.HEARTS, Rank.K);
+        assertTrue(!card1.equals(card2));
+    }
+
+    @Test
+    void equals01() {
+        Card card1 = new Card(Suit.HEARTS, Rank.VII);
+        Card card2 = new Card(Suit.HEARTS, Rank.VII);
+        assertTrue(card1.equals(card2));
+    }
+
+    @Test
+    void equals02() {
+        Card card1 = new Card(Suit.HEARTS, Rank.VII);
+        Card card2 = new Card(Suit.SPADES, Rank.VII);
+        assertTrue(!card1.equals(card2));
+    }
+
+    @Test
+    void equals03() {
+        Card card1 = new Card(Suit.HEARTS, Rank.VII);
+        Card card2 = new Card(Suit.SPADES, Rank.K);
+        assertTrue(!card1.equals(card2));
+    }
 }

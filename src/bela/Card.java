@@ -33,4 +33,8 @@ public class Card {
         StringBuilder string = new StringBuilder();
         return string.append(rank.toString()).append(suit.toString(trumpSuit)).toString();
     }
+
+    public boolean equals(Card that) {
+        return this.suit == that.suit && this.rank == that.rank;
+    }
 }
