@@ -1,6 +1,7 @@
 package bela;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -58,5 +59,17 @@ class CardTest {
         Card card1 = new Card(Suit.SPADES, Rank.VII);
         Card card2 = new Card(Suit.HEARTS, Rank.VIII);
         assertTrue(card1.beats(card2, Suit.SPADES));
+    }
+
+    @Test
+    void toString00() {
+        Card card = new Card(Suit.HEARTS, Rank.K);
+        assertTrue(card.toString(Suit.SPADES).equals("K♡"));
+    }
+
+    @Test
+    void toString01() {
+        Card card = new Card(Suit.HEARTS, Rank.K);
+        assertTrue(card.toString(Suit.HEARTS).equals("K♥"));
     }
 }
