@@ -1,6 +1,7 @@
 package bela;
 
 public class Match {
+    private static final int NUMBER_OF_PLAYERS = PlayerQuartet.NUMBER_OF_PLAYERS;
     private int USPoints = 0;
     private int YOUPoints = 0;
     private int USDeclarations = 0;
@@ -11,6 +12,7 @@ public class Match {
     private Suit trumpSuit;
     private PlayerQuartet players;
     private Deck deck = new Deck();
+    private int currentPlayer;
     public static final int NUMBER_OF_ROUNDS = 8;
     public static final int NUMBER_OF_TEAMS = Game.NUMBER_OF_TEAMS;
     private static final int DEAL_IN_FIRST_PHASE = 6;
@@ -24,6 +26,10 @@ public class Match {
         } else {
             return false;
         }
+    }
+
+    private void incrementCurrentPlayer() {
+        currentPlayer = (currentPlayer + 1) % NUMBER_OF_PLAYERS;
     }
 
     public Match(PlayerQuartet players) {
@@ -85,7 +91,8 @@ public class Match {
     }
 
     private void declareDeclarations(int dealer) {
-        //Dummy
+        int currentPlayer = dealer;
+
     }
 
     private void declareTrumpSuit(int dealer) {
