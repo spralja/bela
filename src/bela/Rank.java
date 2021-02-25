@@ -87,4 +87,28 @@ public enum Rank {
             case A -> "A";
         };
     }
+
+    public int getCarreeDeclarationPower() {
+        return switch(this) {
+            case IX -> 4;
+            case X -> 0;
+            case J -> 5;
+            case Q -> 1;
+            case K -> 2;
+            case A -> 3;
+            default -> -1;
+        };
+    }
+
+    public int getStraightDeclarationPower() {
+        return switch(this) {
+            case IX -> 0;
+            case X -> 1;
+            case J -> 2;
+            case Q -> 3;
+            case K -> 4;
+            case A -> 5;
+            default -> -1;
+        };
+    }
 }
