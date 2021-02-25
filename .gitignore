@@ -31,7 +31,10 @@ hs_err_pid*
 /../../../../:\dev\bela\.idea/dataSources/
 /.idea/dataSources.local.xml
 # Editor-based HTTP Client requests
-/.idea/httpRequests/
+/.idea/httpRequests/Added Main.jAdded Main.java to ava to
 
 #.idea
 /.idea/.gitignore
+
+#mine
+Test.java
