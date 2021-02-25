@@ -14,7 +14,11 @@ public class Card {
     }
 
     public boolean beats(Card that, Suit trumpSuit) {
-        return false;
+        if(this.suit == that.suit) {
+            return this.rank.power(this.suit == trumpSuit) > that.rank.power(that.suit == trumpSuit);
+        } else {
+            return this.suit == trumpSuit;
+        }
     }
 
     public Suit getSuit() {
