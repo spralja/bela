@@ -3,28 +3,33 @@ package bela;
 public abstract class Player {
     private Hand hand;
     private String name;
+    private Player nextPlayer;
+    private boolean isUS;
 
-    public Player(String name) {
+    public Player(String name, boolean isUS) {
         this.name = name;
+        this.isUS = isUS;
     }
 
-    public Player() {
-        this("");
-    }
+    public Player() {}
 
     public String getName() {
         return name;
     }
 
-    public abstract Card play(Game game);
-
-    public abstract Declaration declareDeclarations(Game game);
-
-    public abstract Suit declareTrumpSuit(Game game);
-
-    public abstract Player draw(Card card);
+    public void setNextPlayer(Player player) {
+        this.nextPlayer = player;
+    }
 
     public abstract Card play();
+
+    public abstract Declaration declareDeclarations();
+
+    public abstract Suit declareTrumpSuit();
+
+    public void draw(Card card) {
+        hand.add(card);
+    }
 
     public String toString(Suit trumpSuit) {
         StringBuilder string = new StringBuilder(name);
@@ -36,4 +41,6 @@ public abstract class Player {
     public abstract void openTalon();
 
     public abstract void closeTalon();
+
+    //public abstract void addToGame(Game game);
 }
