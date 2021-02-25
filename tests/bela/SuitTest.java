@@ -12,12 +12,12 @@ class SuitTest {
     }
 
     @Test
-    void testToString01() {
+    void toString01() {
         assertTrue(Suit.HEARTS.toString(Suit.CLUBS).equals("♡"));
     }
 
     @Test
-    void testToString02() {
+    void toString02() {
         assertTrue(Suit.HEARTS.toString(Suit.HEARTS).equals("♥"));
     }
 }
