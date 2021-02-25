@@ -1,4 +1,3 @@
-/*
 package bela;
 
 public abstract class Player {
@@ -12,5 +11,3 @@ public abstract class Player {
 
     public abstract Player draw(Card card);
 }
-
- */
