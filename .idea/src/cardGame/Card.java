@@ -22,11 +22,16 @@ public abstract class Card {
         A,
     }
 
-    public Card() {
-
+    public Card(int suit, int rank) {
+        this.suit = suit;
+        this.rank = rank;
     }
-    
-    public abstract int getSuit();
 
-    public abstract int getRank();
+    public int getSuit() {
+        return suit;
+    }
+
+    public int getRank() {
+        return rank;
+    }
 }
