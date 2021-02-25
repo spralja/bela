@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CardCollectionTest {
-
+    class CardCollectionDummy extends CardCollection {
+    }
+    
     @Test
     void add00() {
         CardCollection cards = new CardCollectionDummy();
@@ -45,7 +47,4 @@ class CardCollectionTest {
         cards.add(card);
         assertTrue(cards.get(0).equals(card));
     }
-}
-
-class CardCollectionDummy extends CardCollection {
 }
