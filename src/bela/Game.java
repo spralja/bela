@@ -17,9 +17,9 @@ public class Game {
         }
     }
 
-    public Game addPlayer(Player player) throws TeamOverflowException {
+    public Game addPlayer(Player player) throws PlayerOverflowException {
         if(size == NUMBER_OF_PLAYERS) {
-            throw new TeamOverflowException("");
+            throw new PlayerOverflowException("A game cannot have more than 4 players!");
         }
 
         if(currentPlayer == null) {
