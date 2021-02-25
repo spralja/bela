@@ -20,11 +20,15 @@ public abstract class Player {
         this.nextPlayer = player;
     }
 
+    public Player getNextPlayer() {
+        return nextPlayer;
+    }
+
     public abstract Card play();
 
-    public abstract Declaration declareDeclarations();
+    public abstract Declaration[] declareDeclarations(boolean isFinal);
 
-    public abstract Suit declareTrumpSuit();
+    public abstract Suit declareTrumpSuit(boolean must);
 
     public void draw(Card card) {
         hand.add(card);
