@@ -1,4 +1,4 @@
 package bela;
 
-public enum Declaration {
+public class Declaration {
 }
