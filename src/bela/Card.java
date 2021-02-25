@@ -10,7 +10,7 @@ public class Card {
     }
 
     public int value(Suit trumpSuit) {
-        return -1;
+        return rank.value(this.suit == trumpSuit);
     }
 
     public boolean beats(Card that, Suit trumpSuit) {
