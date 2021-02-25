@@ -4,11 +4,10 @@ public abstract class Player {
     private Hand hand;
     private String name;
     private Player nextPlayer;
-    private boolean isUS;
+    private Team team;
 
-    public Player(String name, boolean isUS) {
+    public Player(String name) {
         this.name = name;
-        this.isUS = isUS;
     }
 
     public Player() {}
@@ -41,6 +40,10 @@ public abstract class Player {
     public abstract void openTalon();
 
     public abstract void closeTalon();
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     //public abstract void addToGame(Game game);
 }
