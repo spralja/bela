@@ -17,7 +17,8 @@ public class Declaration {
             case CARREE -> switch(topCard.getRank()) {
                 case IX -> 150;
                 case J -> 200;
-                default -> 100;
+                case X, Q, K, A -> 100;
+                default -> -1;
             };
         };
     }
