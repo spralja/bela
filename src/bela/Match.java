@@ -1,62 +1,63 @@
 package bela;
 
-public class Match {
-    private static final int NUMBER_OF_CARS_TO_DEAL_IN_FIRST_PHASE = 6;
+import java.util.Random;
 
-    private Deck deck = new Deck();
-    private Suit trumpSuit;
+public class Match extends BelaMatchUnit{
+    public static final int NUMBER_OF_PLAYERS = 4;
+    private static final int POINTS_GOAL = 1001;
 
-    private void deal(int amount, Player currentPlayer) {
-        int index = Game.NUMBER_OF_PLAYERS;
-        while(index-- > 0) {
-            for(int i = 0; i < amount; ++i) {
-                currentPlayer.draw(deck.deal());
-            }
+    private Player currentPlayer = null;
+    private int size = 0;
+    private Random random = new Random();
 
-            currentPlayer = currentPlayer.getNextPlayer();
+    private Team getTeam() {
+        if(size % Team.NUMBER_OF_TEAMS == 0) {
+            return Team.US;
+        } else {
+            return  Team.YOU;
         }
     }
 
-    public Match(Player currentPlayer) {
-        deck.shuffle();
-        deal(NUMBER_OF_CARS_TO_DEAL_IN_FIRST_PHASE, currentPlayer);
-        declareTrumpSuit(currentPlayer);
-        makeDeclarations(currentPlayer);
-    }
-
-    private void declareTrumpSuit(Player currentPlayer) {
-        int index = Game.NUMBER_OF_PLAYERS;
-        while(index-- > 0 || trumpSuit != null) {
-            trumpSuit = currentPlayer.declareTrumpSuit(index == 0);
-            currentPlayer = currentPlayer.getNextPlayer();
-        }
-    }
-
-    private void makeDeclarations(Player currentPlayer) {
-        int index = Game.NUMBER_OF_PLAYERS;
-        int maxValue = -1;
-        Player winner = null;
-        Declaration[][] declarations1 = {null, null, null, null};
-
-        while(index-- > 0) {
-            declarations1[index] = currentPlayer.declareDeclarations(false);
-            if(declarations1[index] != null && declarations1[index][0].getValue() > maxValue) {
-                maxValue = declarations1[index][0].getValue();
-                winner = currentPlayer;
-            }
-
-            currentPlayer = currentPlayer.getNextPlayer();
+    private Player getRandomPlayer() {
+        int increment = random.nextInt(NUMBER_OF_PLAYERS);
+        Player randomPlayer = currentPlayer;
+        while(increment-- > 0) {
+            randomPlayer = randomPlayer.getNextPlayer();
         }
 
-        index = Game.NUMBER_OF_PLAYERS;
-        Declaration[][] declarations2 = {null, null, null, null};
-        /*
-        while(index-- > 0) {
-            declarations2[index] = currentPlayer.declareDeclarations(false);
-            if(declarations2[index] != null && declarations2[index][0].getValue() > maxValue) {
-                maxValue = declarations1[index][0].getValue();
-                winner = currentPlayer;
-            }
-        }*/
+        return randomPlayer;
+    }
+
+    public Match addPlayer(Player player) throws PlayerOverflowException {
+        if(size == NUMBER_OF_PLAYERS) {
+            throw new PlayerOverflowException("A game cannot have more than 4 players!");
+        }
+
+        if(currentPlayer == null) {
+            currentPlayer = player;
+        } else {
+            currentPlayer.setNextPlayer(player);
+        }
+
+        player.setTeam(getTeam());
+
+        ++size;
+
+        return this;
+    }
+
+    public Team start() throws NotEnoughPlayersException{
+        if(size != NUMBER_OF_PLAYERS) {
+            throw new NotEnoughPlayersException("There must be exactly 4 players to start a game!");
+        }
+
+        currentPlayer = getRandomPlayer();
+        Team.resetPoints();
+        while((Team.US.getPoints() < POINTS_GOAL && Team.YOU.getPoints() < POINTS_GOAL) ||
+                Team.US.getPoints() == Team.YOU.getPoints()) {
+            Game game = new Game(currentPlayer);
+        }
+
+        return null;
     }
 }
