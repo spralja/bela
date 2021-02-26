@@ -3,7 +3,7 @@ package bela;
 public class Game extends BelaMatchUnit{
     private static final int NUMBER_OF_CARS_TO_DEAL_IN_FIRST_PHASE = 6;
 
-    private Deck deck = new Deck();
+    private final Deck deck = new Deck();
     private Suit trumpSuit;
 
     private void deal(int amount, Player currentPlayer) {
